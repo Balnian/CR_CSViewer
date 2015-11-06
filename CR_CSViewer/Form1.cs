@@ -78,9 +78,21 @@ namespace CR_CSViewer
                 LV_Dialogues.Items.Clear();
                 foreach(String[] row in Dialogues)
                 {
-                    if(row != Dialogues.First())
+                    if(row != Dialogues.First() )
                     {
-                        LV_Dialogues.Items.Add(new ListViewItem(row,0));
+                        if(!String.IsNullOrWhiteSpace(TSTB_Recherche.Text))
+                        {
+                            foreach(String str in row)
+                            {
+                                if(str.Contains(TSTB_Recherche.Text))
+                                {
+                                    LV_Dialogues.Items.Add(new ListViewItem(row,0));
+                                    break;
+                                }
+                            }
+                        }
+                        else
+                            LV_Dialogues.Items.Add(new ListViewItem(row,0));
 
                     }
                 }
@@ -88,6 +100,16 @@ namespace CR_CSViewer
 
 
             
+        }
+
+        private void TSTB_Recherche_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void TSTB_Recherche_TextChanged(object sender, EventArgs e)
+        {
+            FillDialogues();
         }
     }
 }

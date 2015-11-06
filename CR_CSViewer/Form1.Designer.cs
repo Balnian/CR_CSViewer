@@ -124,6 +124,8 @@
             // 
             this.TSTB_Recherche.Name = "TSTB_Recherche";
             this.TSTB_Recherche.Size = new System.Drawing.Size(100, 25);
+            this.TSTB_Recherche.Click += new System.EventHandler(this.TSTB_Recherche_Click);
+            this.TSTB_Recherche.TextChanged += new System.EventHandler(this.TSTB_Recherche_TextChanged);
             // 
             // toolStripSeparator1
             // 
